@@ -1,10 +1,20 @@
-import "./App.css";
-import CardList from "./components/Card/Cardlist/Cardlist";
+import { Outlet } from 'react-router';
+import './App.css';
+import Navbar from './Components/Navbar/Navbar';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import { UserProvider } from './Context/useAuth';
+
 function App() {
-return (
-<div className="App">
-<CardList />
-</div>
-);
+  return (
+    <>
+      <UserProvider>
+        <Navbar />
+        <Outlet />
+        <ToastContainer />
+      </UserProvider>
+    </>
+  );
 }
+
 export default App;
